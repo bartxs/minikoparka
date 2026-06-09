@@ -1,0 +1,83 @@
+---
+const towns = [
+  'Wałbrzych',
+  'Świdnica',
+  'Dzierżoniów',
+  'Nowa Ruda',
+  'Boguszów-Gorce',
+  'Szczawno-Zdrój',
+  'Jedlina-Zdrój',
+  'Głuszyca',
+  'Mieroszów',
+  'Radków',
+  'Kłodzko',
+  'Ząbkowice Śląskie',
+];
+---
+
+<section id="obszar" class="bg-smoke py-20 px-4 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Text content -->
+      <div>
+        <span class="inline-block text-amber text-xs font-semibold uppercase tracking-widest mb-3">Gdzie działamy</span>
+        <h2 class="font-display font-bold uppercase text-4xl sm:text-5xl text-concrete leading-tight mb-6">
+          Obszar obsługi
+        </h2>
+        <p class="text-concrete/70 text-base leading-relaxed mb-8">
+          Działamy na terenie Wałbrzycha i całego powiatu wałbrzyskiego. Dojeżdżamy do wszystkich okolicznych miejscowości — zarówno z transportem, jak i ze sprzętem.
+        </p>
+
+        <!-- Town list -->
+        <div class="grid grid-cols-2 gap-2 mb-8">
+          {towns.map(town => (
+            <div class="flex items-center gap-2 text-sm text-concrete/80">
+              <span class="w-1.5 h-1.5 bg-amber shrink-0"></span>
+              {town}
+            </div>
+          ))}
+        </div>
+
+        <div class="p-4 bg-charcoal border-l-2 border-amber">
+          <p class="text-sm text-concrete/80 italic">
+            „Nie jesteś pewien czy dojedziemy? <a href="tel:+48XXXXXXXXX" class="text-amber hover:underline font-semibold">Zadzwoń</a> — na pewno coś ustalimy."
+          </p>
+        </div>
+      </div>
+
+      <!-- Visual map placeholder / area highlight -->
+      <div class="relative">
+        <div class="bg-charcoal border border-white/5 p-8 text-center">
+          <!-- Simple SVG region indicator -->
+          <div class="w-full aspect-square max-w-xs mx-auto relative flex items-center justify-center">
+            <svg viewBox="0 0 200 200" class="w-full h-full opacity-20" fill="none">
+              <!-- Simplified Lower Silesia outline suggestion -->
+              <circle cx="100" cy="100" r="80" stroke="#E8820C" stroke-width="1" stroke-dasharray="4 4"/>
+              <circle cx="100" cy="100" r="50" stroke="#E8820C" stroke-width="1" stroke-dasharray="4 4"/>
+              <circle cx="100" cy="100" r="20" stroke="#E8820C" stroke-width="1"/>
+            </svg>
+            <div class="absolute text-center">
+              <span class="block font-display font-bold uppercase text-2xl text-amber">Wałbrzych</span>
+              <span class="block text-xs text-concrete/40 uppercase tracking-widest mt-1">i okolice</span>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-3 gap-4 text-center border-t border-white/5 pt-6">
+            <div>
+              <span class="block font-display font-bold text-2xl text-amber">{towns.length}+</span>
+              <span class="block text-xs text-concrete/40 uppercase tracking-widest mt-0.5">Miejscowości</span>
+            </div>
+            <div>
+              <span class="block font-display font-bold text-2xl text-amber">~50km</span>
+              <span class="block text-xs text-concrete/40 uppercase tracking-widest mt-0.5">Zasięg</span>
+            </div>
+            <div>
+              <span class="block font-display font-bold text-2xl text-amber">DŚ</span>
+              <span class="block text-xs text-concrete/40 uppercase tracking-widest mt-0.5">Dolny Śląsk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

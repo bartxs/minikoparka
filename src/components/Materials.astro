@@ -1,0 +1,78 @@
+---
+const materials = [
+  {
+    name: 'Piasek do murowania',
+    desc: 'Drobnoziarnisty, do zapraw i tynków',
+    icon: '🪨',
+    tag: 'Budowlany',
+  },
+  {
+    name: 'Piasek podsypkowy',
+    desc: 'Do podbudowy kostki brukowej i dróg',
+    icon: '🏗️',
+    tag: 'Podbudowa',
+  },
+  {
+    name: 'Kamień ozdobny',
+    desc: 'Otoczaki, grys, kruszywo dekoracyjne',
+    icon: '✨',
+    tag: 'Ogród',
+  },
+  {
+    name: 'Kruszywo / Tłuczeń',
+    desc: 'Do dróg dojazdowych i podjazdów',
+    icon: '🛤️',
+    tag: 'Drogi',
+  },
+  {
+    name: 'Ziemia ogrodowa',
+    desc: 'Humus, ziemia urodzajna pod trawniki',
+    icon: '🌱',
+    tag: 'Ogród',
+  },
+  {
+    name: 'Wywóz gruzu',
+    desc: 'Odbiór i transport odpadów budowlanych',
+    icon: '🚛',
+    tag: 'Wywóz',
+  },
+];
+---
+
+<section id="materialy" class="bg-charcoal py-20 px-4 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="mb-12">
+      <span class="inline-block text-amber text-xs font-semibold uppercase tracking-widest mb-3">Co dowozimy</span>
+      <h2 class="font-display font-bold uppercase text-4xl sm:text-5xl text-concrete leading-tight">
+        Materiały
+      </h2>
+      <p class="text-concrete/60 mt-3 text-base max-w-xl">
+        Zapytaj o dostępność i ceny — wycena bezpłatna, bez zobowiązań.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {materials.map(mat => (
+        <div class="bg-smoke border border-white/5 p-6 flex gap-4 hover:border-amber/30 transition-colors group">
+          <div class="text-3xl shrink-0 mt-0.5">{mat.icon}</div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <h3 class="font-display font-bold uppercase text-base text-concrete group-hover:text-amber transition-colors">
+                {mat.name}
+              </h3>
+            </div>
+            <p class="text-xs text-concrete/50 uppercase tracking-widest mb-2">{mat.tag}</p>
+            <p class="text-sm text-concrete/70">{mat.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Note -->
+    <p class="mt-8 text-center text-concrete/40 text-sm">
+      Nie widzisz tego, czego szukasz? <a href="tel:+48XXXXXXXXX" class="text-amber hover:underline">Zadzwoń</a> — ustalimy indywidualnie.
+    </p>
+  </div>
+</section>

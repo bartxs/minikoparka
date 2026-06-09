@@ -1,0 +1,96 @@
+---
+const PHONE = '+48 XXX XXX XXX';
+const PHONE_HREF = 'tel:+48XXXXXXXXX';
+---
+
+<header
+  id="header"
+  class="fixed top-0 left-0 right-0 z-50 bg-charcoal/95 backdrop-blur-sm border-b border-white/5 transition-all duration-300"
+>
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+    <!-- Logo / Name -->
+    <a href="#" class="font-display text-xl font-bold tracking-wide text-concrete uppercase">
+      Transport &amp; Roboty Ziemne
+      <span class="block text-xs font-body font-medium text-amber tracking-widest uppercase">
+        Wałbrzych i okolice
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-concrete/70">
+      <a href="#uslugi" class="hover:text-amber transition-colors">Usługi</a>
+      <a href="#materialy" class="hover:text-amber transition-colors">Materiały</a>
+      <a href="#galeria" class="hover:text-amber transition-colors">Galeria</a>
+      <a href="#obszar" class="hover:text-amber transition-colors">Zasięg</a>
+      <a href="#kontakt" class="hover:text-amber transition-colors">Kontakt</a>
+    </nav>
+
+    <!-- Phone CTA (desktop) -->
+    <a
+      href={PHONE_HREF}
+      class="hidden md:flex items-center gap-2 bg-amber hover:bg-amber-dark text-charcoal font-display font-bold text-base uppercase tracking-wide px-5 py-2 transition-colors"
+    >
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+      </svg>
+      {PHONE}
+    </a>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-btn"
+      class="md:hidden flex flex-col gap-1.5 p-2 text-concrete"
+      aria-label="Menu"
+    >
+      <span class="block w-6 h-0.5 bg-current transition-all" id="bar1"></span>
+      <span class="block w-6 h-0.5 bg-current transition-all" id="bar2"></span>
+      <span class="block w-6 h-0.5 bg-current transition-all" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-smoke border-t border-white/5">
+    <nav class="flex flex-col px-4 py-4 gap-4 text-base font-medium">
+      <a href="#uslugi" class="text-concrete/80 hover:text-amber transition-colors" onclick="closeMobileMenu()">Usługi</a>
+      <a href="#materialy" class="text-concrete/80 hover:text-amber transition-colors" onclick="closeMobileMenu()">Materiały</a>
+      <a href="#galeria" class="text-concrete/80 hover:text-amber transition-colors" onclick="closeMobileMenu()">Galeria</a>
+      <a href="#obszar" class="text-concrete/80 hover:text-amber transition-colors" onclick="closeMobileMenu()">Zasięg</a>
+      <a href="#kontakt" class="text-concrete/80 hover:text-amber transition-colors" onclick="closeMobileMenu()">Kontakt</a>
+      <a
+        href={PHONE_HREF}
+        class="flex items-center gap-2 bg-amber text-charcoal font-display font-bold uppercase tracking-wide px-4 py-3 w-full justify-center mt-2"
+      >
+        Zadzwoń: {PHONE}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  const bar3 = document.getElementById('bar3');
+  let open = false;
+
+  btn?.addEventListener('click', () => {
+    open = !open;
+    menu?.classList.toggle('hidden', !open);
+    if (bar1 && bar2 && bar3) {
+      bar1.style.transform = open ? 'rotate(45deg) translate(5px, 5px)' : '';
+      bar2.style.opacity = open ? '0' : '1';
+      bar3.style.transform = open ? 'rotate(-45deg) translate(4px, -4px)' : '';
+    }
+  });
+
+  (window as any).closeMobileMenu = () => {
+    open = false;
+    menu?.classList.add('hidden');
+    if (bar1 && bar2 && bar3) {
+      bar1.style.transform = '';
+      bar2.style.opacity = '1';
+      bar3.style.transform = '';
+    }
+  };
+</script>

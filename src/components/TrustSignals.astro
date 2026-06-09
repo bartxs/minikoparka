@@ -1,0 +1,59 @@
+---
+const signals = [
+  {
+    title: '4×4 Napęd',
+    desc: 'Docieramy tam, gdzie inne auta nie dojadą — polne drogi, strome zjazdy, rozmokły teren. Żaden problem.',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>`,
+  },
+  {
+    title: 'Lokalny Operator',
+    desc: 'Działamy w Wałbrzychu i okolicach. Znamy region, reagujemy szybko i nie każemy długo czekać.',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
+  },
+  {
+    title: 'Małe i duże zlecenia',
+    desc: 'Czy to jeden kurs z piaskiem, czy wielodniowe roboty ziemne — podchodzimy do każdego zlecenia z pełnym zaangażowaniem.',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>`,
+  },
+  {
+    title: 'Uczciwa cena',
+    desc: 'Wycena bez zobowiązań, cena ustalana z góry. Żadnych ukrytych kosztów po robocie.',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+  },
+  {
+    title: 'Szybka odpowiedź',
+    desc: 'Dzwonisz — odbieramy. Piszesz na WhatsApp — odpowiadamy tego samego dnia. Nie zostawiamy zapytań bez odpowiedzi.',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+  },
+  {
+    title: 'Doświadczenie',
+    desc: 'Lata pracy w terenie, setki zrealizowanych zleceń. Wiemy, jak zrobić to dobrze — bez powtórek i poprawek.',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`,
+  },
+];
+---
+
+<section class="bg-smoke py-20 px-4 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <!-- Header -->
+    <div class="mb-12">
+      <span class="inline-block text-amber text-xs font-semibold uppercase tracking-widest mb-3">Dlaczego my</span>
+      <h2 class="font-display font-bold uppercase text-4xl sm:text-5xl text-concrete leading-tight">
+        Co nas wyróżnia
+      </h2>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {signals.map(s => (
+        <div class="flex gap-4">
+          <div class="text-amber shrink-0 mt-0.5" set:html={s.icon} />
+          <div>
+            <h3 class="font-display font-bold uppercase text-lg text-concrete mb-1">{s.title}</h3>
+            <p class="text-sm text-concrete/60 leading-relaxed">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
