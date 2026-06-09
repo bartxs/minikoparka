@@ -1,10 +1,10 @@
 ---
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const photos = [
-  { src: `${base}images/truck.webp`, alt: 'Wywrotka 4x4 — widok z przodu', caption: 'Wywrotka 4×4' },
-  { src: `${base}images/excavator.webp`, alt: 'Minikoparkas w pracy', caption: 'Minikoparkas' },
-  { src: `${base}images/truck2.webp`, alt: 'Wywrotka podczas rozładunku', caption: 'Transport materiałów' },
-  { src: `${base}images/excavator2.webp`, alt: 'Prace ziemne — wykop', caption: 'Roboty ziemne' },
+  { src: `${base}/images/truck.webp`, alt: 'Wywrotka 4x4 — widok z przodu', caption: 'Wywrotka 4×4' },
+  { src: `${base}/images/excavator.webp`, alt: 'Minikoparkas w pracy', caption: 'Minikoparkas' },
+  { src: `${base}/images/truck2.webp`, alt: 'Wywrotka podczas rozładunku', caption: 'Transport materiałów' },
+  { src: `${base}/images/excavator2.webp`, alt: 'Prace ziemne — wykop', caption: 'Roboty ziemne' },
 ];
 ---
 
@@ -62,12 +62,12 @@ const photos = [
 </div>
 
 <script>
-  const base = import.meta.env.BASE_URL;
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   const photos = [
-    { src: `${base}images/truck.webp`, alt: 'Wywrotka 4x4', caption: 'Wywrotka 4×4' },
-    { src: `${base}images/excavator.webp`, alt: 'Minikoparkas w pracy', caption: 'Minikoparkas' },
-    { src: `${base}images/truck2.webp`, alt: 'Wywrotka podczas rozładunku', caption: 'Transport materiałów' },
-    { src: `${base}images/excavator2.webp`, alt: 'Prace ziemne', caption: 'Roboty ziemne' },
+    { src: `${base}/images/truck.webp`, alt: 'Wywrotka 4x4', caption: 'Wywrotka 4×4' },
+    { src: `${base}/images/excavator.webp`, alt: 'Minikoparkas w pracy', caption: 'Minikoparkas' },
+    { src: `${base}/images/truck2.webp`, alt: 'Wywrotka podczas rozładunku', caption: 'Transport materiałów' },
+    { src: `${base}/images/excavator2.webp`, alt: 'Prace ziemne', caption: 'Roboty ziemne' },
   ];
 
   const lightbox = document.getElementById('lightbox');
