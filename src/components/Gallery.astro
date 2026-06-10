@@ -1,11 +1,9 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const photos = [
-  { src: `${base}/images/truck.webp`, alt: 'Wywrotka 4x4 — widok z przodu', caption: 'Wywrotka 4×4' },
-  { src: `${base}/images/excavator.webp`, alt: 'Minikoparkas w pracy', caption: 'Minikoparkas' },
-  { src: `${base}/images/truck2.webp`, alt: 'Wywrotka podczas rozładunku', caption: 'Transport materiałów' },
-  { src: `${base}/images/excavator2.webp`, alt: 'Prace ziemne — wykop', caption: 'Roboty ziemne' },
-];
+const photos = Array.from({ length: 13 }, (_, i) => ({
+  src: `${base}/images/${i + 1}.webp`,
+  alt: `Realizacja prac ziemnych — zdjęcie ${i + 1}`,
+}));
 ---
 
 <section id="galeria" class="bg-charcoal py-20 px-4 border-t border-white/5">
@@ -16,35 +14,42 @@ const photos = [
       <h2 class="font-display font-bold uppercase text-4xl sm:text-5xl text-concrete leading-tight">
         Galeria
       </h2>
+      <p class="text-concrete/60 mt-3 text-base max-w-xl">
+        Wybrane realizacje i nasz sprzęt w pracy. Kliknij zdjęcie, aby powiększyć.
+      </p>
     </div>
 
     <!-- Photo grid -->
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
       {photos.map((photo, i) => (
-        <div
+        <button
+          type="button"
           class:list={[
-            'relative overflow-hidden group cursor-pointer',
-            i === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-square',
+            'relative aspect-square overflow-hidden group cursor-pointer bg-smoke',
+            i === 0 ? 'col-span-2 row-span-2' : '',
           ]}
           data-lightbox-index={i}
+          aria-label="Powiększ zdjęcie"
         >
           <img
             src={photo.src}
             alt={photo.alt}
-            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
-          <div class="absolute inset-0 bg-charcoal/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-            <span class="font-display font-bold uppercase text-sm text-concrete">{photo.caption}</span>
+          <div class="absolute inset-0 bg-charcoal/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <svg class="w-10 h-10 text-concrete" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zm-7-3v6m3-3H7"/>
+            </svg>
           </div>
-        </div>
+        </button>
       ))}
     </div>
 
-    <!-- Placeholder note for more photos -->
+    <!-- Note for more photos -->
     <div class="mt-8 p-6 border border-dashed border-white/10 text-center">
       <p class="text-concrete/40 text-sm">
-        Więcej zdjęć realizacji dostępnych na żądanie — <a href="tel:+48XXXXXXXXX" class="text-amber hover:underline">zadzwoń</a> lub napisz na WhatsApp.
+        Więcej zdjęć realizacji dostępnych na żądanie — <a href="tel:+48607092619" class="text-amber hover:underline">zadzwoń</a> lub napisz na WhatsApp.
       </p>
     </div>
   </div>
@@ -57,35 +62,45 @@ const photos = [
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
     </svg>
   </button>
+  <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 text-concrete/60 hover:text-concrete p-2" aria-label="Poprzednie">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+    </svg>
+  </button>
+  <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 text-concrete/60 hover:text-concrete p-2" aria-label="Następne">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    </svg>
+  </button>
   <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[85vh] object-contain" />
-  <p id="lightbox-caption" class="absolute bottom-6 left-1/2 -translate-x-1/2 font-display uppercase text-concrete/60 text-sm tracking-widest"></p>
 </div>
 
 <script>
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-  const photos = [
-    { src: `${base}/images/truck.webp`, alt: 'Wywrotka 4x4', caption: 'Wywrotka 4×4' },
-    { src: `${base}/images/excavator.webp`, alt: 'Minikoparkas w pracy', caption: 'Minikoparkas' },
-    { src: `${base}/images/truck2.webp`, alt: 'Wywrotka podczas rozładunku', caption: 'Transport materiałów' },
-    { src: `${base}/images/excavator2.webp`, alt: 'Prace ziemne', caption: 'Roboty ziemne' },
-  ];
+  const photos = Array.from({ length: 13 }, (_, i) => ({
+    src: `${base}/images/${i + 1}.webp`,
+    alt: `Realizacja prac ziemnych — zdjęcie ${i + 1}`,
+  }));
 
   const lightbox = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
-  const lbCaption = document.getElementById('lightbox-caption');
   const lbClose = document.getElementById('lightbox-close');
+  const lbPrev = document.getElementById('lightbox-prev');
+  const lbNext = document.getElementById('lightbox-next');
+  let current = 0;
 
-  document.querySelectorAll('[data-lightbox-index]').forEach(el => {
-    el.addEventListener('click', () => {
-      const idx = parseInt((el as HTMLElement).dataset.lightboxIndex || '0');
-      const p = photos[idx];
-      if (lbImg) { lbImg.src = p.src; lbImg.alt = p.alt; }
-      if (lbCaption) lbCaption.textContent = p.caption;
-      lightbox?.classList.remove('hidden');
-      lightbox?.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    });
-  });
+  const show = (idx: number) => {
+    current = (idx + photos.length) % photos.length;
+    const p = photos[current];
+    if (lbImg) { lbImg.src = p.src; lbImg.alt = p.alt; }
+  };
+
+  const openLightbox = (idx: number) => {
+    show(idx);
+    lightbox?.classList.remove('hidden');
+    lightbox?.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  };
 
   const closeLightbox = () => {
     lightbox?.classList.add('hidden');
@@ -93,7 +108,21 @@ const photos = [
     document.body.style.overflow = '';
   };
 
+  document.querySelectorAll('[data-lightbox-index]').forEach(el => {
+    el.addEventListener('click', () => {
+      const idx = parseInt((el as HTMLElement).dataset.lightboxIndex || '0');
+      openLightbox(idx);
+    });
+  });
+
   lbClose?.addEventListener('click', closeLightbox);
+  lbPrev?.addEventListener('click', (e) => { e.stopPropagation(); show(current - 1); });
+  lbNext?.addEventListener('click', (e) => { e.stopPropagation(); show(current + 1); });
   lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if (lightbox?.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
 </script>

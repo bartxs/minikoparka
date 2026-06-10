@@ -1,6 +1,6 @@
 ---
-const PHONE = '+48 XXX XXX XXX';
-const PHONE_HREF = 'tel:+48XXXXXXXXX';
+const PHONE = '+48 607 092 619';
+const PHONE_HREF = 'tel:+48607092619';
 const year = new Date().getFullYear();
 ---
 
@@ -8,14 +8,18 @@ const year = new Date().getFullYear();
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
     <div>
       <p class="font-display font-bold uppercase text-lg text-concrete tracking-wide">
-        Transport i Roboty Ziemne
+        M.K.T Tomasz Ćwioro
       </p>
-      <p class="text-concrete/40 text-sm mt-1">Wałbrzych i okolice · Dolny Śląsk</p>
+      <p class="text-concrete/40 text-sm mt-1">Roboty ziemne oraz usługi wielobranżowe</p>
+      <p class="text-concrete/40 text-sm mt-1">Unisław Śląski 20, 58-350 · Dolny Śląsk</p>
     </div>
 
-    <div class="flex items-center gap-2">
+    <div class="flex flex-col items-center gap-1">
       <a href={PHONE_HREF} class="text-amber font-display font-bold tracking-wide hover:underline">
         {PHONE}
+      </a>
+      <a href="mailto:m.k.t.cwioro@wp.pl" class="text-concrete/50 text-sm hover:text-amber transition-colors">
+        m.k.t.cwioro@wp.pl
       </a>
     </div>
 
@@ -37,7 +41,7 @@ const year = new Date().getFullYear();
     Zadzwoń
   </a>
   <a
-    href="https://wa.me/48XXXXXXXXX?text=Dzień dobry, chciałbym zapytać o wycenę."
+    href="https://wa.me/48607092619?text=Dzień dobry, chciałbym zapytać o wycenę."
     target="_blank"
     rel="noopener noreferrer"
     class="flex-1 flex items-center justify-center gap-2 bg-smoke hover:bg-white/10 text-concrete border-l border-white/10 font-display font-bold uppercase text-sm tracking-wide py-4 transition-colors"

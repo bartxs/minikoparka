@@ -1,5 +1,73 @@
 ---
-const PHONE_HREF = 'tel:+48XXXXXXXXX';
+const PHONE_HREF = 'tel:+48607092619';
+
+const services = [
+  {
+    title: 'Roboty Ziemne Minikoparką',
+    sub: 'Volvo 1,8–3 t · Precyzja w ciasnych miejscach',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>`,
+    desc: 'Trzy minikoparki Volvo o wadze od 1,8 do 3 ton i bogaty osprzęt pozwalają pracować dokładnie nawet w trudno dostępnych miejscach.',
+    items: [
+      'Wykopy pod fundamenty i instalacje',
+      'Niwelacja i wyrównywanie terenu',
+      'Wiercenie otworów (np. pod ogrodzenia)',
+      'Przesiewanie gruntu łyżką ażurową',
+      'Zasypki i zagęszczanie',
+      'Praca na ciasnych, trudno dostępnych działkach',
+    ],
+  },
+  {
+    title: 'Koparka Kołowa JCB',
+    sub: '12 t · Głowica obrotowa (rototilt)',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>`,
+    desc: 'JCB Hydradig 12 t z głowicą obrotowo-uchylną (rototilt) i kompletem łyżek — większe wykopy, precyzyjna niwelacja i wyburzenia.',
+    items: [
+      'Większe wykopy i prace ziemne',
+      'Precyzyjna niwelacja terenu (belka)',
+      'Wyburzenia i rozbiórki (młot)',
+      'Załadunek i przenoszenie materiałów',
+      'Chwytak do drewna',
+      'Szybka praca dzięki rototiltowi',
+    ],
+  },
+  {
+    title: 'Sieci Światłowodowe',
+    sub: 'Przeciski · Trasy · Wdmuchiwanie kabli',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
+    desc: 'Kompleksowa obsługa robót ziemnych przy budowie sieci światłowodowych — od wykopu po wdmuchiwanie kabla.',
+    items: [
+      'Budowa tras światłowodowych',
+      'Przeciski pod drogami (kret) do śr. 130 mm',
+      'Wdmuchiwanie kabli światłowodowych',
+      'Wykopy pod kable wąską łyżką (od 18 cm)',
+      'Układanie rur i mikrokanalizacji',
+      'Odtworzenie terenu po pracach',
+    ],
+  },
+  {
+    title: 'Przyłącza i Instalacje',
+    sub: 'Woda · Kanalizacja · Drenaż',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>`,
+    desc: 'Wykonujemy przyłącza i instalacje podziemne — od przyłączy wodociągowych po szamba i odwodnienia.',
+    items: [
+      'Przyłącza wodociągowe',
+      'Przyłącza i instalacje sanitarne',
+      'Szamba i zbiorniki',
+      'Drenaże i odwodnienia',
+      'Wykopy pod kanalizację',
+      'Zasypki i uporządkowanie terenu',
+    ],
+  },
+];
+
+const fleet = [
+  '3× minikoparka Volvo 1,8–3 t (ECR25D ×2, EC18)',
+  'Koparka kołowa JCB Hydradig 12 t z rototiltem',
+  'Wywrotka 10 t z napędem 4×4 (oraz mniejsze wywrotki)',
+  'Przyczepa do transportu elementów do 16 m (latarnie, słupy, pręty zbrojeniowe)',
+  'Łyżki od 18 do 120 cm, skarpowe i skarpowo-uchylne',
+  'Łyżka ażurowa (przesiewna), chwytaki, wiertnice, młot, grabie',
+];
 ---
 
 <section id="uslugi" class="bg-smoke py-20 px-4">
@@ -8,101 +76,72 @@ const PHONE_HREF = 'tel:+48XXXXXXXXX';
     <div class="mb-12">
       <span class="inline-block text-amber text-xs font-semibold uppercase tracking-widest mb-3">Co robimy</span>
       <h2 class="font-display font-bold uppercase text-4xl sm:text-5xl text-concrete leading-tight">
-        Nasze Usługi
+        Usługi i Sprzęt
       </h2>
+      <p class="text-concrete/60 mt-3 text-base max-w-xl">
+        Od precyzyjnych wykopów minikoparką po budowę sieci światłowodowych i wyburzenia. Jeden wykonawca, kompletny sprzęt.
+      </p>
     </div>
 
-    <!-- Two service cards -->
+    <!-- Service cards -->
     <div class="grid md:grid-cols-2 gap-6">
-      <!-- Transport -->
-      <div class="bg-charcoal border border-white/5 p-8 group hover:border-amber/40 transition-colors">
-        <div class="flex items-start gap-4 mb-6">
-          <div class="w-14 h-14 bg-amber/10 border border-amber/20 flex items-center justify-center shrink-0 group-hover:bg-amber/20 transition-colors">
-            <svg class="w-7 h-7 text-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 17H5a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m0 0h3l3 3v4h-3m-3 0H9m0 0a2 2 0 100 4 2 2 0 000-4zm9 0a2 2 0 100 4 2 2 0 000-4z"/>
+      {services.map(s => (
+        <div class="bg-charcoal border border-white/5 p-8 group hover:border-amber/40 transition-colors">
+          <div class="flex items-start gap-4 mb-6">
+            <div class="w-14 h-14 bg-amber/10 border border-amber/20 flex items-center justify-center shrink-0 group-hover:bg-amber/20 transition-colors text-amber">
+              <Fragment set:html={s.icon} />
+            </div>
+            <div>
+              <h3 class="font-display font-bold uppercase text-2xl text-concrete mb-1">{s.title}</h3>
+              <p class="text-amber text-sm font-medium">{s.sub}</p>
+            </div>
+          </div>
+
+          <p class="text-concrete/70 text-sm leading-relaxed mb-6">{s.desc}</p>
+
+          <ul class="space-y-2.5 mb-8">
+            {s.items.map(item => (
+              <li class="flex items-start gap-2.5 text-sm text-concrete/80">
+                <span class="text-amber mt-0.5 shrink-0">▸</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href={PHONE_HREF}
+            class="inline-flex items-center gap-2 text-amber font-display font-bold uppercase tracking-wide text-sm border border-amber/30 px-5 py-2.5 hover:bg-amber hover:text-charcoal transition-colors"
+          >
+            Zapytaj o wycenę
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
-          </div>
-          <div>
-            <h3 class="font-display font-bold uppercase text-2xl text-concrete mb-1">Transport Wywrotką</h3>
-            <p class="text-amber text-sm font-medium">4×4 · Terenowa · Każdy dojazd</p>
-          </div>
+          </a>
         </div>
+      ))}
+    </div>
 
-        <p class="text-concrete/70 text-sm leading-relaxed mb-6">
-          Dysponujemy wywrotką z napędem 4×4, która dojedzie tam, gdzie standardowe ciężarówki nie mają szans. Piasek, kamień, gruz — dowozimy na czas.
-        </p>
-
-        <ul class="space-y-2.5 mb-8">
-          {[
-            'Dostawa piasku (do murowania, podsypkowego)',
-            'Kamień ozdobny i kruszywo',
-            'Ziemia ogrodowa i humus',
-            'Wywóz gruzu i odpadów budowlanych',
-            'Transport materiałów sypkich',
-            'Dojazd do trudno dostępnych posesji',
-          ].map(item => (
-            <li class="flex items-start gap-2.5 text-sm text-concrete/80">
-              <span class="text-amber mt-0.5 shrink-0">▸</span>
-              {item}
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href={PHONE_HREF}
-          class="inline-flex items-center gap-2 text-amber font-display font-bold uppercase tracking-wide text-sm border border-amber/30 px-5 py-2.5 hover:bg-amber hover:text-charcoal transition-colors"
-        >
-          Zapytaj o wycenę
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+    <!-- Fleet / equipment band -->
+    <div class="mt-6 bg-charcoal border border-white/5 p-8">
+      <div class="flex items-start gap-4 mb-6">
+        <div class="w-14 h-14 bg-amber/10 border border-amber/20 flex items-center justify-center shrink-0 text-amber">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 17H5a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3m0 0h3l3 3v4h-3m-3 0H9m0 0a2 2 0 100 4 2 2 0 000-4zm9 0a2 2 0 100 4 2 2 0 000-4z"/>
           </svg>
-        </a>
-      </div>
-
-      <!-- Earthworks -->
-      <div class="bg-charcoal border border-white/5 p-8 group hover:border-amber/40 transition-colors">
-        <div class="flex items-start gap-4 mb-6">
-          <div class="w-14 h-14 bg-amber/10 border border-amber/20 flex items-center justify-center shrink-0 group-hover:bg-amber/20 transition-colors">
-            <svg class="w-7 h-7 text-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-display font-bold uppercase text-2xl text-concrete mb-1">Roboty Ziemne</h3>
-            <p class="text-amber text-sm font-medium">Minikoparkas · Precyzja · Mały i duży teren</p>
-          </div>
         </div>
-
-        <p class="text-concrete/70 text-sm leading-relaxed mb-6">
-          Kompaktowa minikoparkas sprawdzi się w ogrodzie, na ciasnej działce czy w pobliżu budynków. Wykopy, poziomowanie terenu, zasypki — robimy dokładnie i czysto.
-        </p>
-
-        <ul class="space-y-2.5 mb-8">
-          {[
-            'Wykopy fundamentowe i pod instalacje',
-            'Niwelacja i wyrównywanie terenu',
-            'Zasypki i zagęszczanie gruntu',
-            'Wykopy pod kanalizację i drenaż',
-            'Prace porządkowe na budowie',
-            'Praca w miejscach trudno dostępnych',
-          ].map(item => (
-            <li class="flex items-start gap-2.5 text-sm text-concrete/80">
-              <span class="text-amber mt-0.5 shrink-0">▸</span>
-              {item}
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href={PHONE_HREF}
-          class="inline-flex items-center gap-2 text-amber font-display font-bold uppercase tracking-wide text-sm border border-amber/30 px-5 py-2.5 hover:bg-amber hover:text-charcoal transition-colors"
-        >
-          Zapytaj o wycenę
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
-        </a>
+        <div>
+          <h3 class="font-display font-bold uppercase text-2xl text-concrete mb-1">Nasz Sprzęt</h3>
+          <p class="text-amber text-sm font-medium">Maszyny i transport pod każde zlecenie</p>
+        </div>
       </div>
+      <ul class="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+        {fleet.map(item => (
+          <li class="flex items-start gap-2.5 text-sm text-concrete/80">
+            <span class="text-amber mt-0.5 shrink-0">▸</span>
+            {item}
+          </li>
+        ))}
+      </ul>
     </div>
   </div>
 </section>
